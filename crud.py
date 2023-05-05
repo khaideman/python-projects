@@ -1,6 +1,9 @@
 import mysql.connector
+# Mengimpor library mysql.connector dan os
+import mysql.connector
 import os
 
+# Membuat koneksi ke database
 db = mysql.connector.connect(
   host="localhost",
   user="root",
@@ -8,7 +11,7 @@ db = mysql.connector.connect(
   database="crud_python"
 )
 
-
+# Membuat fungsi untuk memasukkan data ke dalam database
 def insert_data(db):
   Nama = input("Masukan Nama: ")
   Jurusan = input("Masukan Jurusan: ")
@@ -19,7 +22,7 @@ def insert_data(db):
   db.commit()
   print("{} data berhasil disimpan".format(cursor.rowcount))
 
-
+# Membuat fungsi untuk menampilkan data dari database
 def show_data(db):
   cursor = db.cursor()
   sql = "SELECT * FROM mahasiswa"
@@ -32,7 +35,7 @@ def show_data(db):
     for data in results:
       print(data)
 
-
+# Membuat fungsi untuk mengubah data di dalam database
 def update_data(db):
   cursor = db.cursor()
   show_data(db)
@@ -46,7 +49,7 @@ def update_data(db):
   db.commit()
   print("{} data berhasil diubah".format(cursor.rowcount))
 
-
+# Membuat fungsi untuk menghapus data di dalam database
 def delete_data(db):
   cursor = db.cursor()
   show_data(db)
@@ -57,7 +60,7 @@ def delete_data(db):
   db.commit()
   print("{} data berhasil dihapus".format(cursor.rowcount))
 
-
+# Membuat fungsi untuk mencari data di dalam database
 def search_data(db):
   cursor = db.cursor()
   keyword = input("Kata kunci: ")
@@ -72,7 +75,7 @@ def search_data(db):
     for data in results:
       print(data)
 
-
+# Membuat fungsi untuk menampilkan menu program
 def show_menu(db):
   print("=== PROJECT PYTHON TERKONEKSI DENGAN DATABASE MYSQL ===")
   print("1. Insert Data")
@@ -84,7 +87,7 @@ def show_menu(db):
   print("------------------")
   menu = input("Pilih menu> ")
 
-  #clear screen
+# Membersihkan layar konsol
   os.system("cls")
 
   if menu == "1":
