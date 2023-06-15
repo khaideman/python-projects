@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Output Program Python</title>
+</head>
+<body>
+    <h1>Output Program Python</h1>
+    
+    <h2>Nilai Priori:</h2>
+    <ul>
+        {% for kelas, nilai in priori.items() %}
+        <li>{{ kelas }}: {{ nilai }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Hipotesis:</h2>
+    <ul>
+        {% for atribut, nilai in hipotesis.items() %}
+        <li>{{ atribut }}: {{ nilai }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Probabilitas Kondisional:</h2>
+    <ul>
+        {% for kelas, probabilitas in cp.items() %}
+        <li>{{ kelas }}:</li>
+        <ul>
+            {% for atribut, nilai in probabilitas.items() %}
+            <li>{{ atribut }}: {{ nilai }}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
+    
+    <h2>Hasil Klasifikasi:</h2>
+    <ul>
+        {% for kelas, nilai in hasil.items() %}
+        <li>{{ kelas }}: {{ nilai }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
